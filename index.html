@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Windy</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100">
+    <div class="flex">
+      <div
+        class="flex flex-col bg-clip-border bg-white text-gray-700 h-[calc(100vh)] max-w-[20rem] p-4 shadow-xl shadow-indigo-gray-900/5">
+        <div class="mb-2 p-4">
+          <h5
+            class="block antialiased tracking-normal font-sans text-xl font-semibold leading-snug text-indigo-gray-900">
+            Admin Application
+          </h5>
+        </div>
+        <nav
+          class="flex flex-col gap-1 min-w-[240px] p-2 font-sans text-base font-normal text-indigo-gray-700">
+          <div
+            data-tab="tab-3"
+            role="button"
+            tabindex="0"
+            class="tab-link flex items-center w-full p-3 rounded-lg text-start leading-tight transition-all hover:bg-gray-100 hover:bg-opacity-80 focus:bg-indigo-200 focus:bg-opacity-80 active:bg-gray-100 active:bg-opacity-80 hover:text-gray-900 focus:text-gray-900 active:text-gray-900 outline-none">
+            <div class="grid place-items-center mr-4">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+                class="h-5 w-5">
+                <path
+                  fill-rule="evenodd"
+                  d="M6.912 3a3 3 0 00-2.868 2.118l-2.411 7.838a3 3 0 00-.133.882V18a3 3 0 003 3h15a3 3 0 003-3v-4.162c0-.299-.045-.596-.133-.882l-2.412-7.838A3 3 0 0017.088 3H6.912zm13.823 9.75l-2.213-7.191A1.5 1.5 0 0017.088 4.5H6.912a1.5 1.5 0 00-1.434 1.059L3.265 12.75H6.11a3 3 0 012.684 1.658l.256.513a1.5 1.5 0 001.342.829h3.218a1.5 1.5 0 001.342-.83l.256-.512a3 3 0 012.684-1.658h2.844z"
+                  clip-rule="evenodd"></path>
+              </svg>
+            </div>
+            User Management
+          </div>
+          <div
+            data-tab="tab-2"
+            role="button"
+            tabindex="0"
+            class="tab-link flex items-center w-full p-3 rounded-lg text-start leading-tight transition-all hover:bg-gray-100 hover:bg-opacity-80 focus:bg-indigo-200 focus:bg-opacity-80 active:bg-gray-100 active:bg-opacity-80 hover:text-gray-900 focus:text-gray-900 active:text-gray-900 outline-none">
+            <div class="grid place-items-center mr-4">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+                class="h-5 w-5">
+                <path
+                  fill-rule="evenodd"
+                  d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
+                  clip-rule="evenodd"></path>
+              </svg>
+            </div>
+            User Active
+          </div>
+          <div
+            data-tab="tab-1"
+            role="button"
+            tabindex="0"
+            class="tab-link flex items-center w-full p-3 rounded-lg text-start leading-tight transition-all hover:bg-gray-100 hover:bg-opacity-80 focus:bg-indigo-200 focus:bg-opacity-80 active:bg-gray-100 active:bg-opacity-80 hover:text-gray-900 focus:text-gray-900 active:text-gray-900 outline-none">
+            <div class="grid place-items-center mr-4">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+                class="h-5 w-5">
+                <path
+                  fill-rule="evenodd"
+                  d="M11.078 2.25c-.917 0-1.699.663-1.85 1.567L9.05 4.889c-.02.12-.115.26-.297.348a7.493 7.493 0 00-.986.57c-.166.115-.334.126-.45.083L6.3 5.508a1.875 1.875 0 00-2.282.819l-.922 1.597a1.875 1.875 0 00.432 2.385l.84.692c.095.078.17.229.154.43a7.598 7.598 0 000 1.139c.015.2-.059.352-.153.43l-.841.692a1.875 1.875 0 00-.432 2.385l.922 1.597a1.875 1.875 0 002.282.818l1.019-.382c.115-.043.283-.031.45.082.312.214.641.405.985.57.182.088.277.228.297.35l.178 1.071c.151.904.933 1.567 1.85 1.567h1.844c.916 0 1.699-.663 1.85-1.567l.178-1.072c.02-.12.114-.26.297-.349.344-.165.673-.356.985-.57.167-.114.335-.125.45-.082l1.02.382a1.875 1.875 0 002.28-.819l.923-1.597a1.875 1.875 0 00-.432-2.385l-.84-.692c-.095-.078-.17-.229-.154-.43a7.614 7.614 0 000-1.139c-.016-.2.059-.352.153-.43l.84-.692c.708-.582.891-1.59.433-2.385l-.922-1.597a1.875 1.875 0 00-2.282-.818l-1.02.382c-.114.043-.282.031-.449-.083a7.49 7.49 0 00-.985-.57c-.183-.087-.277-.227-.297-.348l-.179-1.072a1.875 1.875 0 00-1.85-1.567h-1.843zM12 15.75a3.75 3.75 0 100-7.5 3.75 3.75 0 000 7.5z"
+                  clip-rule="evenodd"></path>
+              </svg>
+            </div>
+            User Inactive
+          </div>
+        </nav>
+      </div>
+      <div class="flex bg-white text-gray-700 h-[calc(100vh-2rem)] w-full m-4">
+        <div class="w-full">
+          <header class="bg-white p-4 shadow-lg">
+            <h2 class="text-2xl font-semibold">User Management</h2>
+          </header>
+          <main class="bg-white p-4 mt-4 h-[calc(80vh)]">
+            <div class="flex justify-between flex-nowrap">
+              <div class="inline-block relative">
+                <div class="relative w-full min-w-[200px] h-10">
+                  <input
+                    id="searchUsername"
+                    class="peer w-full h-full bg-transparent text-indigo-gray-700 font-sans font-normal outline outline-0 focus:outline-0 disabled:bg-indigo-gray-50 disabled:border-0 disabled:cursor-not-allowed transition-all placeholder-shown:border placeholder-shown:border-indigo-gray-200 placeholder-shown:border-t-indigo-gray-200 border focus:border-2 focus:border-t-transparent placeholder:opacity-0 focus:placeholder:opacity-100 text-sm px-3 py-2.5 rounded-[7px] border-indigo-gray-200 focus:border-gray-900"
+                    placeholder=" " /><label
+                    class="flex w-full h-full select-none pointer-events-none absolute left-0 font-normal !overflow-visible truncate peer-placeholder-shown:text-indigo-gray-500 leading-tight peer-focus:leading-tight peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-indigo-gray-500 transition-all -top-1.5 peer-placeholder-shown:text-sm text-[11px] peer-focus:text-[11px] before:content[' '] before:block before:box-border before:w-2.5 before:h-1.5 before:mt-[6.5px] before:mr-1 peer-placeholder-shown:before:border-transparent before:rounded-tl-md before:border-t peer-focus:before:border-t-2 before:border-l peer-focus:before:border-l-2 before:pointer-events-none before:transition-all peer-disabled:before:border-transparent after:content[' '] after:block after:flex-grow after:box-border after:w-2.5 after:h-1.5 after:mt-[6.5px] after:ml-1 peer-placeholder-shown:after:border-transparent after:rounded-tr-md after:border-t peer-focus:after:border-t-2 after:border-r peer-focus:after:border-r-2 after:pointer-events-none after:transition-all peer-disabled:after:border-transparent peer-placeholder-shown:leading-[3.75] text-gray-500 peer-focus:text-gray-900 before:border-indigo-gray-200 peer-focus:before:!border-gray-900 after:border-indigo-gray-200 peer-focus:after:!border-gray-900"
+                    >Search Username...
+                  </label>
+                </div>
+              </div>
+              <button
+                id="open-modal"
+                class="flex items-center space-x-2 p-2 bg-indigo-500 text-white rounded hover:bg-indigo-600">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-5 h-5"
+                  viewBox="0 -5 20 20"
+                  fill="currentColor">
+                  <path
+                    fill-rule="evenodd"
+                    d="M11 2a1 1 0 0 1 2 0v3h3a1 1 0 1 1 0 2h-3v3a1 1 0 1 1-2 0v-3H8a1 1 0 0 1 0-2h3V2z" />
+                </svg>
+                <span>Add New User</span>
+              </button>
+            </div>
+            <div>
+              <div class="tab-content" id="tab-1">
+                <h3 class="text-2xl font-semibold mb-4">Inactive</h3>
+                <div class="w-full overflow-x-auto">
+                  <table class="min-w-full border rounded-lg">
+                    <thead>
+                      <tr>
+                        <th
+                          class="px-6 py-3 bg-gray-200 text-left text-xs leading-4 font-semibold text-gray-700 uppercase tracking-wider">
+                          Username
+                        </th>
+                        <th
+                          class="px-6 py-3 bg-gray-200 text-left text-xs leading-4 font-semibold text-gray-700 uppercase tracking-wider">
+                          Fullname
+                        </th>
+                        <th
+                          class="px-6 py-3 bg-gray-200 text-left text-xs leading-4 font-semibold text-gray-700 uppercase tracking-wider">
+                          Role
+                        </th>
+                        <th
+                          class="px-6 py-3 bg-gray-200 text-left text-xs leading-4 font-semibold text-gray-700 uppercase tracking-wider">
+                          Actions
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody id="table-body-belum"></tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="tab-content" id="tab-2">
+                <h3 class="text-2xl font-semibold mb-4">Active</h3>
+                <div class="w-full overflow-x-auto">
+                  <table class="min-w-full border rounded-lg">
+                    <thead>
+                      <tr>
+                        <th
+                          class="px-6 py-3 bg-gray-200 text-left text-xs leading-4 font-semibold text-gray-700 uppercase tracking-wider">
+                          Username
+                        </th>
+                        <th
+                          class="px-6 py-3 bg-gray-200 text-left text-xs leading-4 font-semibold text-gray-700 uppercase tracking-wider">
+                          Fullname
+                        </th>
+                        <th
+                          class="px-6 py-3 bg-gray-200 text-left text-xs leading-4 font-semibold text-gray-700 uppercase tracking-wider">
+                          Role
+                        </th>
+                        <th
+                          class="px-6 py-3 bg-gray-200 text-left text-xs leading-4 font-semibold text-gray-700 uppercase tracking-wider">
+                          Actions
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody id="table-body-sudah"></tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </main>
+        </div>
+
+        <div class="fixed z-10 inset-0 overflow-y-auto hidden" id="modal">
+          <div
+            class="flex items-center justify-center min-h-screen p-4 text-center sm:p-0">
+            <div class="fixed inset-0 transition-opacity">
+              <div class="absolute inset-0 bg-black opacity-50"></div>
+            </div>
+            <div
+              class="relative inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="modal-headline">
+              <form id="inputUser">
+                <div class="p-4">
+                  <div
+                    class="text-3xl font-semibold text-gray-800 mb-5 text-center"
+                    id="modal-headline">
+                    Data User
+                  </div>
+                  <section>
+                    <div class="mb-4">
+                      <div class="relative w-full min-w-[200px] h-11">
+                        <input
+                          required
+                          id="inputUsername"
+                          class="peer w-full h-full bg-transparent text-indigo-gray-700 font-sans font-normal outline outline-0 focus:outline-0 disabled:bg-indigo-gray-50 disabled:border-0 disabled:cursor-not-allowed transition-all placeholder-shown:border placeholder-shown:border-indigo-gray-200 placeholder-shown:border-t-indigo-gray-200 border focus:border-2 focus:border-t-transparent placeholder:opacity-0 focus:placeholder:opacity-100 text-sm px-3 py-2.5 rounded-[7px] border-indigo-gray-200 focus:border-gray-900"
+                          placeholder=" " />
+                        <label
+                          class="flex w-full h-full select-none pointer-events-none absolute left-0 font-normal !overflow-visible truncate peer-placeholder-shown:text-indigo-gray-500 leading-tight peer-focus:leading-tight peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-indigo-gray-500 transition-all -top-1.5 peer-placeholder-shown:text-sm text-[11px] peer-focus:text-[11px] before:content[' '] before:block before:box-border before:w-2.5 before:h-1.5 before:mt-[6.5px] before:mr-1 peer-placeholder-shown:before:border-transparent before:rounded-tl-md before:border-t peer-focus:before:border-t-2 before:border-l peer-focus:before:border-l-2 before:pointer-events-none before:transition-all peer-disabled:before:border-transparent after:content[' '] after:block after:flex-grow after:box-border after:w-2.5 after:h-1.5 after:mt-[6.5px] after:ml-1 peer-placeholder-shown:after:border-transparent after:rounded-tr-md after:border-t peer-focus:after:border-t-2 after:border-r peer-focus:after:border-r-2 after:pointer-events-none after:transition-all peer-disabled:after:border-transparent peer-placeholder-shown:leading-[3.75] text-gray-500 peer-focus:text-gray-900 before:border-indigo-gray-200 peer-focus:before:!border-gray-900 after:border-indigo-gray-200 peer-focus:after:!border-gray-900"
+                          >Username
+                        </label>
+                      </div>
+                    </div>
+                    <div class="mb-4">
+                      <div class="relative w-full min-w-[200px] h-11">
+                        <input
+                          required
+                          id="inputFullname"
+                          class="peer w-full h-full bg-transparent text-indigo-gray-700 font-sans font-normal outline outline-0 focus:outline-0 disabled:bg-indigo-gray-50 disabled:border-0 disabled:cursor-not-allowed transition-all placeholder-shown:border placeholder-shown:border-indigo-gray-200 placeholder-shown:border-t-indigo-gray-200 border focus:border-2 focus:border-t-transparent placeholder:opacity-0 focus:placeholder:opacity-100 text-sm px-3 py-2.5 rounded-[7px] border-indigo-gray-200 focus:border-gray-900"
+                          placeholder=" " />
+                        <label
+                          class="flex w-full h-full select-none pointer-events-none absolute left-0 font-normal !overflow-visible truncate peer-placeholder-shown:text-indigo-gray-500 leading-tight peer-focus:leading-tight peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-indigo-gray-500 transition-all -top-1.5 peer-placeholder-shown:text-sm text-[11px] peer-focus:text-[11px] before:content[' '] before:block before:box-border before:w-2.5 before:h-1.5 before:mt-[6.5px] before:mr-1 peer-placeholder-shown:before:border-transparent before:rounded-tl-md before:border-t peer-focus:before:border-t-2 before:border-l peer-focus:before:border-l-2 before:pointer-events-none before:transition-all peer-disabled:before:border-transparent after:content[' '] after:block after:flex-grow after:box-border after:w-2.5 after:h-1.5 after:mt-[6.5px] after:ml-1 peer-placeholder-shown:after:border-transparent after:rounded-tr-md after:border-t peer-focus:after:border-t-2 after:border-r peer-focus:after:border-r-2 after:pointer-events-none after:transition-all peer-disabled:after:border-transparent peer-placeholder-shown:leading-[3.75] text-gray-500 peer-focus:text-gray-900 before:border-indigo-gray-200 peer-focus:before:!border-gray-900 after:border-indigo-gray-200 peer-focus:after:!border-gray-900">
+                          Fullname
+                        </label>
+                      </div>
+                    </div>
+                    <div class="mb-4">
+                      <div class="relative w-full min-w-[200px] h-11">
+                        <input
+                          required
+                          id="inputRole"
+                          class="peer w-full h-full bg-transparent text-indigo-gray-700 font-sans font-normal outline outline-0 focus:outline-0 disabled:bg-indigo-gray-50 disabled:border-0 disabled:cursor-not-allowed transition-all placeholder-shown:border placeholder-shown:border-indigo-gray-200 placeholder-shown:border-t-indigo-gray-200 border focus:border-2 focus:border-t-transparent placeholder:opacity-0 focus:placeholder:opacity-100 text-sm px-3 py-2.5 rounded-[7px] border-indigo-gray-200 focus:border-gray-900"
+                          placeholder=" " />
+                        <label
+                          class="flex w-full h-full select-none pointer-events-none absolute left-0 font-normal !overflow-visible truncate peer-placeholder-shown:text-indigo-gray-500 leading-tight peer-focus:leading-tight peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-indigo-gray-500 transition-all -top-1.5 peer-placeholder-shown:text-sm text-[11px] peer-focus:text-[11px] before:content[' '] before:block before:box-border before:w-2.5 before:h-1.5 before:mt-[6.5px] before:mr-1 peer-placeholder-shown:before:border-transparent before:rounded-tl-md before:border-t peer-focus:before:border-t-2 before:border-l peer-focus:before:border-l-2 before:pointer-events-none before:transition-all peer-disabled:before:border-transparent after:content[' '] after:block after:flex-grow after:box-border after:w-2.5 after:h-1.5 after:mt-[6.5px] after:ml-1 peer-placeholder-shown:after:border-transparent after:rounded-tr-md after:border-t peer-focus:after:border-t-2 after:border-r peer-focus:after:border-r-2 after:pointer-events-none after:transition-all peer-disabled:after:border-transparent peer-placeholder-shown:leading-[3.75] text-gray-500 peer-focus:text-gray-900 before:border-indigo-gray-200 peer-focus:before:!border-gray-900 after:border-indigo-gray-200 peer-focus:after:!border-gray-900">
+                          Role
+                        </label>
+                      </div>
+                    </div>
+                    <div class="mb-4">
+                      <label
+                        class="block text-gray-600 text-sm font-semibold mb-2"
+                        >Active</label
+                      >
+                      <div
+                        class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+                        <input
+                          type="checkbox"
+                          id="isActive"
+                          class="hidden" /><label
+                          for="isActive"
+                          class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+                <div class="px-4 py-3 bg-gray-100 text-right">
+                  <button
+                    formnovalidate
+                    type="button"
+                    class="close-modal mr-2 bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-2 px-4 rounded">
+                    Close</button
+                  ><button
+                    type="submit"
+                    class="close-modal mr-2 bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-2 px-4 rounded"
+                    id="bookSubmit">
+                    Save
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="styling.js"></script>
+    <script src="site.js"></script>
+  </body>
+</html>
