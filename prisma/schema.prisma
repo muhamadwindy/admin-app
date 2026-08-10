@@ -1,0 +1,126 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// SQLite has no native enum type support in Prisma, so the app-level enums
+// (PortalRole, AccountStatus, EmploymentType, RequestType, RequestStatus)
+// are modeled as validated strings — see src/types/enums.ts for the TS
+// union types and src/lib/validation.ts for the zod schemas that enforce them.
+
+model User {
+  id                  String    @id @default(cuid())
+  nip                 String    @unique // employee ID, e.g. BCN-2024-0123
+  fullName            String
+  email               String    @unique
+  phone               String
+  gender              String
+  dateOfBirth         DateTime
+  idCardNumber        String // KTP, masked in UI
+  address             String
+  department          String
+  branch              String
+  position            String
+  employmentType      String    @default("PERMANENT")
+  joinDate            DateTime
+  accountStatus       String    @default("ACTIVE")
+  portalRole          String    @default("NONE")
+
+  passwordHash        String
+  mustChangePassword  Boolean   @default(false)
+  failedLoginAttempts Int       @default(0)
+  lockedUntil         DateTime?
+  lastLoginAt         DateTime?
+
+  createdById         String?
+  updatedById         String?
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
+
+  sessions            Session[]
+  otpChallenges       OtpChallenge[]
+  requestsMade        ChangeRequest[] @relation("Requester")
+  requestsReviewed    ChangeRequest[] @relation("Reviewer")
+  requestsTargeted    ChangeRequest[] @relation("Target")
+  auditLogs           AuditLog[]
+
+  @@index([department])
+  @@index([branch])
+  @@index([portalRole])
+}
+
+model ChangeRequest {
+  id           String   @id @default(cuid())
+  type         String
+  status       String   @default("PENDING")
+
+  targetId     String?
+  target       User?    @relation("Target", fields: [targetId], references: [id])
+
+  payload      String // JSON snapshot of proposed field values
+  previousData String? // JSON snapshot of prior field values (UPDATE/DEACTIVATE/DELETE)
+  reason       String // maker's justification, required
+
+  requesterId  String
+  requester    User     @relation("Requester", fields: [requesterId], references: [id])
+  requestedAt  DateTime @default(now())
+
+  reviewerId   String?
+  reviewer     User?    @relation("Reviewer", fields: [reviewerId], references: [id])
+  reviewNote   String?
+  reviewedAt   DateTime?
+
+  @@index([status])
+  @@index([requesterId])
+}
+
+model AuditLog {
+  id         String   @id @default(cuid())
+  actorId    String?
+  actor      User?    @relation(fields: [actorId], references: [id])
+  actorName  String // denormalized snapshot in case actor is later removed
+  action     String // e.g. LOGIN_SUCCESS, REQUEST_APPROVED, USER_UPDATED
+  entityType String // e.g. User, ChangeRequest, Session
+  entityId   String?
+  description String
+  metadata   String? // JSON diff / extra context
+  ipAddress  String?
+  userAgent  String?
+  createdAt  DateTime @default(now())
+
+  @@index([action])
+  @@index([entityType, entityId])
+  @@index([createdAt])
+}
+
+model Session {
+  id         String    @id @default(cuid())
+  userId     String
+  user       User      @relation(fields: [userId], references: [id])
+  tokenHash  String    @unique
+  ipAddress  String?
+  userAgent  String?
+  createdAt  DateTime  @default(now())
+  expiresAt  DateTime
+  revokedAt  DateTime?
+
+  @@index([userId])
+}
+
+model OtpChallenge {
+  id          String    @id @default(cuid())
+  userId      String
+  user        User      @relation(fields: [userId], references: [id])
+  codeHash    String
+  expiresAt   DateTime
+  attempts    Int       @default(0)
+  consumedAt  DateTime?
+  lastSentAt  DateTime  @default(now())
+  createdAt   DateTime  @default(now())
+
+  @@index([userId])
+}
