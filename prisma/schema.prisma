@@ -3,14 +3,15 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
-// SQLite has no native enum type support in Prisma, so the app-level enums
-// (PortalRole, AccountStatus, EmploymentType, RequestType, RequestStatus)
-// are modeled as validated strings — see src/types/enums.ts for the TS
-// union types and src/lib/validation.ts for the zod schemas that enforce them.
+// Started on SQLite (no native Prisma enum support there) for zero-config local
+// review; now deployed against Postgres. Kept the app-level enums as validated
+// strings rather than native Postgres enums so the two stay schema-compatible —
+// see src/types/enums.ts for the TS union types and src/lib/validation.ts for
+// the zod schemas that actually enforce them.
 
 model User {
   id                  String    @id @default(cuid())
