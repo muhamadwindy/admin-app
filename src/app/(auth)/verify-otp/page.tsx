@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { AlertCircle, KeyRound, FlaskConical } from "lucide-react";
+import { AlertCircle, ArrowLeft, KeyRound, FlaskConical } from "lucide-react";
 import { Button } from "@/components/ui";
 import { OtpInput } from "@/components/auth/OtpInput";
 
@@ -113,6 +114,15 @@ export default function VerifyOtpPage() {
       >
         {cooldown > 0 ? `Kirim ulang kode dalam ${cooldown}d` : "Kirim ulang kode"}
       </button>
+
+      <Link
+        href="/login"
+        onClick={() => sessionStorage.removeItem("bcn_demo_otp")}
+        className="mt-4 flex items-center justify-center gap-1.5 border-t border-ink-100 pt-4 text-[12.5px] text-ink-400 hover:text-brand-600"
+      >
+        <ArrowLeft size={14} />
+        Kembali ke halaman login
+      </Link>
     </div>
   );
 }
