@@ -27,6 +27,7 @@ export default function VerifyOtpPage() {
   }, [cooldown]);
 
   async function submit() {
+    if (loading) return;
     if (code.length !== 6) {
       setError("Masukkan 6 digit kode OTP.");
       return;
@@ -43,6 +44,7 @@ export default function VerifyOtpPage() {
       if (!res.ok) {
         setError(data.error ?? "Verifikasi gagal.");
         setCode("");
+        setLoading(false);
         return;
       }
       sessionStorage.removeItem("bcn_demo_otp");
@@ -50,7 +52,6 @@ export default function VerifyOtpPage() {
       router.refresh();
     } catch {
       setError("Terjadi kesalahan jaringan. Silakan coba lagi.");
-    } finally {
       setLoading(false);
     }
   }

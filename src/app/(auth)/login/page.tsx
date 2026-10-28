@@ -34,6 +34,7 @@ export default function LoginPage() {
   } = useForm<FormValues>({ resolver: zodResolver(loginSchema) });
 
   async function onSubmit(values: FormValues) {
+    if (loading) return;
     setServerError(null);
     setLoading(true);
     try {
@@ -45,13 +46,14 @@ export default function LoginPage() {
       const data = await res.json();
       if (!res.ok) {
         setServerError(data.error ?? "Gagal masuk. Silakan coba lagi.");
+        setLoading(false);
         return;
       }
       sessionStorage.setItem("bcn_demo_otp", data.demoOtp);
+      // Tetap loading sampai pindah halaman: login kedua akan menerbitkan OTP baru dan membatalkan yang tampil.
       router.push("/verify-otp");
     } catch {
       setServerError("Terjadi kesalahan jaringan. Silakan coba lagi.");
-    } finally {
       setLoading(false);
     }
   }
