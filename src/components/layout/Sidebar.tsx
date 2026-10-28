@@ -17,7 +17,7 @@ export function Sidebar({ role, pendingCount = 0 }: { role: string; pendingCount
         </div>
         <div className="leading-tight">
           <p className="text-[13.5px] font-semibold tracking-tight text-white">CoreAccess</p>
-          <p className="text-[10.5px] text-ink-400">Bank Cakra Nusantara</p>
+          <p className="text-[10.5px] text-ink-400">Bank Sulistiyo Kusumo</p>
         </div>
       </div>
 
@@ -49,7 +49,7 @@ export function Sidebar({ role, pendingCount = 0 }: { role: string; pendingCount
       <div className="mx-3 mb-4 rounded-md border border-white/10 bg-white/[0.04] p-3">
         <p className="text-[11px] font-semibold uppercase tracking-wider text-ink-400">Sistem Internal</p>
         <p className="mt-1 text-[11.5px] leading-relaxed text-ink-400">
-          Seluruh aktivitas pada portal ini dicatat dalam jejak audit sesuai kebijakan keamanan informasi BCN.
+          Seluruh aktivitas pada portal ini dicatat dalam jejak audit sesuai kebijakan keamanan informasi BSK.
         </p>
       </div>
     </aside>

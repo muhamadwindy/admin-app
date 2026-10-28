@@ -82,8 +82,8 @@ export function EmployeeForm({
       <Panel className="p-5">
         <p className="label-caps mb-4">Data Pribadi</p>
         <div className="grid gap-4 sm:grid-cols-2">
-          <Field label="NIP" htmlFor="nip" required error={errors.nip?.message} hint="Format: BCN-YYYY-XXXX">
-            <Input id="nip" placeholder="BCN-2026-0001" disabled={mode === "edit"} aria-invalid={!!errors.nip} {...register("nip")} />
+          <Field label="NIP" htmlFor="nip" required error={errors.nip?.message} hint="Format: BSK-YYYY-XXXX">
+            <Input id="nip" placeholder="BSK-2026-0001" disabled={mode === "edit"} aria-invalid={!!errors.nip} {...register("nip")} />
           </Field>
           <Field label="Nama Lengkap" htmlFor="fullName" required error={errors.fullName?.message}>
             <Input id="fullName" aria-invalid={!!errors.fullName} {...register("fullName")} />

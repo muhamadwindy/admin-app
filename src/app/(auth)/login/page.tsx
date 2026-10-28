@@ -13,10 +13,10 @@ import type { z } from "zod";
 type FormValues = z.infer<typeof loginSchema>;
 
 const DEMO_ACCOUNTS = [
-  { role: "Super Admin (IT)", nip: "BCN-2021-0001", password: "SuperAdmin123" },
-  { role: "Admin Operasional (Maker)", nip: "BCN-2021-0002", password: "AdminOps123" },
-  { role: "Approver (Checker)", nip: "BCN-2021-0003", password: "Approver123" },
-  { role: "Auditor Internal", nip: "BCN-2021-0004", password: "Auditor123" },
+  { role: "Super Admin (IT)", nip: "BSK-2021-0001", password: "SuperAdmin123" },
+  { role: "Admin Operasional (Maker)", nip: "BSK-2021-0002", password: "AdminOps123" },
+  { role: "Approver (Checker)", nip: "BSK-2021-0003", password: "Approver123" },
+  { role: "Auditor Internal", nip: "BSK-2021-0004", password: "Auditor123" },
 ];
 
 export default function LoginPage() {
@@ -49,7 +49,7 @@ export default function LoginPage() {
         setLoading(false);
         return;
       }
-      sessionStorage.setItem("bcn_demo_otp", data.demoOtp);
+      sessionStorage.setItem("bsk_demo_otp", data.demoOtp);
       // Tetap loading sampai pindah halaman: login kedua akan menerbitkan OTP baru dan membatalkan yang tampil.
       router.push("/verify-otp");
     } catch {
@@ -77,7 +77,7 @@ export default function LoginPage() {
           </label>
           <Input
             id="nip"
-            placeholder="BCN-2021-0001"
+            placeholder="BSK-2021-0001"
             autoComplete="username"
             aria-invalid={!!errors.nip}
             {...register("nip")}

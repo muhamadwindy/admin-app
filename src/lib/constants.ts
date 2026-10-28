@@ -1,11 +1,11 @@
-export const BANK_NAME = "Bank Cakra Nusantara";
-export const BANK_SHORT = "BCN";
+export const BANK_NAME = "Bank Sulistiyo Kusumo";
+export const BANK_SHORT = "BSK";
 export const APP_NAME = "CoreAccess";
 
 // Cookie names are edge-safe constants (no Node-only deps) so middleware.ts
 // can read them without pulling in lib/auth.ts's Prisma/bcrypt/node:crypto imports.
-export const SESSION_COOKIE = "bcn_session";
-export const PENDING_COOKIE = "bcn_pending";
+export const SESSION_COOKIE = "bsk_session";
+export const PENDING_COOKIE = "bsk_pending";
 
 export const BRANCHES = [
   "Kantor Pusat - Jakarta",

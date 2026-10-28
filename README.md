@@ -1,6 +1,6 @@
 # CoreAccess
 
-**Employee identity & access management console for Bank Cakra Nusantara (BCN)** — a fictional bank used as a case study. CoreAccess is the internal tool HR Operations and IT would use to provision, change, and retire employee accounts, with the governance controls a real bank back-office requires: maker–checker approval on every write, step-up OTP authentication, and a compliance-grade audit trail.
+**Employee identity & access management console for Bank Sulistiyo Kusumo (BSK)** — a fictional bank used as a case study. CoreAccess is the internal tool HR Operations and IT would use to provision, change, and retire employee accounts, with the governance controls a real bank back-office requires: maker–checker approval on every write, step-up OTP authentication, and a compliance-grade audit trail.
 
 This is a portfolio case study — see [Scope & disclosures](#scope--disclosures) for exactly what's real vs. simplified for demo purposes.
 
@@ -13,7 +13,7 @@ Next.js 14 (App Router, TypeScript) · Prisma + SQLite · Tailwind CSS (custom d
 ```bash
 npm install
 npm run db:migrate   # creates prisma/dev.db and applies the schema
-npm run db:seed      # seeds BCN branches/departments, 32 employees, sample requests & audit history
+npm run db:seed      # seeds BSK branches/departments, 32 employees, sample requests & audit history
 npm run dev
 ```
 
@@ -23,11 +23,11 @@ Open http://localhost:3000 — it redirects to `/login`. No external services, A
 
 | Role | NIP | Password |
 |---|---|---|
-| Super Admin (IT) | `BCN-2021-0001` | `SuperAdmin123` |
-| Admin Operasional (Maker) | `BCN-2021-0002` | `AdminOps123` |
-| Approver (Checker) | `BCN-2021-0003` | `Approver123` |
-| Auditor Internal | `BCN-2021-0004` | `Auditor123` |
-| New hire (forced password change) | `BCN-2025-0006` | `Welcome123` |
+| Super Admin (IT) | `BSK-2021-0001` | `SuperAdmin123` |
+| Admin Operasional (Maker) | `BSK-2021-0002` | `AdminOps123` |
+| Approver (Checker) | `BSK-2021-0003` | `Approver123` |
+| Auditor Internal | `BSK-2021-0004` | `Auditor123` |
+| New hire (forced password change) | `BSK-2025-0006` | `Welcome123` |
 
 After password entry, the OTP step-up shows its code directly on screen in a "demo mode" banner (see [Auth design](#auth-design) for why).
 
@@ -71,7 +71,7 @@ What's simplified for a portfolio project, on purpose:
 
 ```
 prisma/schema.prisma      # User, ChangeRequest, AuditLog, Session, OtpChallenge
-prisma/seed.ts             # BCN branches/departments + demo roster + sample requests/audit history
+prisma/seed.ts             # BSK branches/departments + demo roster + sample requests/audit history
 src/lib/auth.ts            # password hashing, session + OTP challenge lifecycle, lockout
 src/lib/requests.ts        # the only code path that mutates User records (create/decide/cancel)
 src/lib/rbac.ts            # role → permission matrix

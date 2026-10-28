@@ -20,7 +20,7 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
           </div>
           <div className="leading-tight">
             <p className="text-[15px] font-semibold text-white">CoreAccess</p>
-            <p className="text-[11px] text-ink-400">Bank Cakra Nusantara</p>
+            <p className="text-[11px] text-ink-400">Bank Sulistiyo Kusumo</p>
           </div>
         </div>
 

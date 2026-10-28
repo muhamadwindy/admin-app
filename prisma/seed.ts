@@ -45,7 +45,7 @@ type SeedEmployee = {
 
 let seq = 1;
 function nip(year: string) {
-  return `BCN-${year}-${String(seq++).padStart(4, "0")}`;
+  return `BSK-${year}-${String(seq++).padStart(4, "0")}`;
 }
 
 const roster: SeedEmployee[] = [
@@ -183,7 +183,7 @@ const roster: SeedEmployee[] = [
 ];
 
 async function main() {
-  console.log("Seeding CoreAccess demo data for Bank Cakra Nusantara...");
+  console.log("Seeding CoreAccess demo data for Bank Sulistiyo Kusumo...");
   await prisma.auditLog.deleteMany();
   await prisma.otpChallenge.deleteMany();
   await prisma.session.deleteMany();
@@ -197,7 +197,7 @@ async function main() {
       data: {
         nip: emp.nip,
         fullName: emp.fullName,
-        email: `${emp.fullName.toLowerCase().replace(/[^a-z ]/g, "").replace(/\s+/g, ".")}@bcn.co.id`,
+        email: `${emp.fullName.toLowerCase().replace(/[^a-z ]/g, "").replace(/\s+/g, ".")}@bsk.co.id`,
         phone: `08${String(100000000 + idx * 7919).padStart(9, "0")}`,
         gender: emp.gender,
         dateOfBirth: new Date(emp.dob),
@@ -295,9 +295,9 @@ async function main() {
       reviewNote: "Nomor KTP yang diajukan tidak sesuai dengan dokumen pendukung. Mohon ajukan ulang dengan lampiran yang benar.",
       reason: "Penambahan pegawai baru di Cabang Bandung sesuai kebutuhan ekspansi Q1.",
       payload: JSON.stringify({
-        nip: "BCN-2026-0088",
+        nip: "BSK-2026-0088",
         fullName: "Calon Pegawai Contoh",
-        email: "calon.pegawai@bcn.co.id",
+        email: "calon.pegawai@bsk.co.id",
         phone: "081234567890",
         gender: "Laki-laki",
         dateOfBirth: "1998-01-01",
@@ -338,7 +338,7 @@ async function main() {
     { actorId: approverId, actorName: "Bambang Kurniawan", action: "REQUEST_REJECTED", entityType: "ChangeRequest", entityId: rejectedReq.id, description: "Bambang Kurniawan menolak pengajuan Penambahan Pegawai dari Siti Rahmawati", offsetMin: 60 * 24 * 2 - 25 },
     { actorId: approver2Id, actorName: "Ratna Puspitasari", action: "REQUEST_APPROVED", entityType: "ChangeRequest", description: "Ratna Puspitasari menyetujui pengajuan Perubahan Data dari Siti Rahmawati", offsetMin: 60 * 24 * 5 },
     { actorId: auditorId, actorName: "Dewi Anggraini", action: "LOGIN_SUCCESS", entityType: "Session", description: "Dewi Anggraini berhasil masuk ke sistem", offsetMin: 60 * 10 },
-    { actorId: null, actorName: "Unknown", action: "LOGIN_FAILED", entityType: "Session", description: "Percobaan masuk gagal untuk NIP BCN-2021-0002 (kata sandi salah)", offsetMin: 60 * 8 },
+    { actorId: null, actorName: "Unknown", action: "LOGIN_FAILED", entityType: "Session", description: "Percobaan masuk gagal untuk NIP BSK-2021-0002 (kata sandi salah)", offsetMin: 60 * 8 },
     { actorId: adminId, actorName: "Siti Rahmawati", action: "PASSWORD_CHANGED", entityType: "User", entityId: adminId, description: "Siti Rahmawati memperbarui kata sandi akunnya", offsetMin: 60 * 24 * 7 },
   ];
 
@@ -358,11 +358,11 @@ async function main() {
 
   console.log(`Seed complete: ${roster.length} employees, 4 change requests, ${auditEntries.length} audit entries.`);
   console.log("Demo portal credentials:");
-  console.log("  Super Admin -> NIP BCN-2021-0001 / SuperAdmin123");
-  console.log("  Admin (Maker) -> NIP BCN-2021-0002 / AdminOps123");
-  console.log("  Approver (Checker) -> NIP BCN-2021-0003 / Approver123");
-  console.log("  Auditor -> NIP BCN-2021-0004 / Auditor123");
-  console.log("  New hire (must change password) -> NIP BCN-2025-0006 / Welcome123");
+  console.log("  Super Admin -> NIP BSK-2021-0001 / SuperAdmin123");
+  console.log("  Admin (Maker) -> NIP BSK-2021-0002 / AdminOps123");
+  console.log("  Approver (Checker) -> NIP BSK-2021-0003 / Approver123");
+  console.log("  Auditor -> NIP BSK-2021-0004 / Auditor123");
+  console.log("  New hire (must change password) -> NIP BSK-2025-0006 / Welcome123");
 }
 
 main()

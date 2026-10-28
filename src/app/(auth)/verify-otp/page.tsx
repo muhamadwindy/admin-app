@@ -18,7 +18,7 @@ export default function VerifyOtpPage() {
   const [cooldown, setCooldown] = useState(0);
 
   useEffect(() => {
-    setDemoOtp(sessionStorage.getItem("bcn_demo_otp"));
+    setDemoOtp(sessionStorage.getItem("bsk_demo_otp"));
   }, []);
 
   useEffect(() => {
@@ -48,7 +48,7 @@ export default function VerifyOtpPage() {
         setLoading(false);
         return;
       }
-      sessionStorage.removeItem("bcn_demo_otp");
+      sessionStorage.removeItem("bsk_demo_otp");
       router.push(data.mustChangePassword ? "/change-password" : "/dashboard");
       router.refresh();
     } catch {
@@ -117,7 +117,7 @@ export default function VerifyOtpPage() {
 
       <Link
         href="/login"
-        onClick={() => sessionStorage.removeItem("bcn_demo_otp")}
+        onClick={() => sessionStorage.removeItem("bsk_demo_otp")}
         className="mt-4 flex items-center justify-center gap-1.5 border-t border-ink-100 pt-4 text-[12.5px] text-ink-400 hover:text-brand-600"
       >
         <ArrowLeft size={14} />

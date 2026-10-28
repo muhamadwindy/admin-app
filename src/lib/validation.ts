@@ -32,7 +32,7 @@ export const employeeFormSchema = z.object({
   nip: z
     .string()
     .min(6, "NIP wajib diisi")
-    .regex(/^BCN-\d{4}-\d{4,6}$/, "Format NIP: BCN-YYYY-XXXX"),
+    .regex(/^BSK-\d{4}-\d{4,6}$/, "Format NIP: BSK-YYYY-XXXX"),
   fullName: z.string().min(3, "Nama lengkap minimal 3 karakter").max(120),
   email: z.string().email("Format email tidak valid"),
   phone: z

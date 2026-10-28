@@ -18,9 +18,9 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "CoreAccess | Bank Cakra Nusantara",
+  title: "CoreAccess | Bank Sulistiyo Kusumo",
   description:
-    "Sistem internal manajemen identitas & akses pegawai Bank Cakra Nusantara — provisioning, persetujuan berjenjang, dan jejak audit.",
+    "Sistem internal manajemen identitas & akses pegawai Bank Sulistiyo Kusumo — provisioning, persetujuan berjenjang, dan jejak audit.",
   robots: { index: false, follow: false },
 };
 

@@ -2,7 +2,7 @@
   "name": "bank-user-admin",
   "version": "0.1.0",
   "private": true,
-  "description": "CoreAccess - internal employee identity & access management console for Bank Cakra Nusantara (portfolio case study).",
+  "description": "CoreAccess - internal employee identity & access management console for Bank Sulistiyo Kusumo (portfolio case study).",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

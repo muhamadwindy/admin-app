@@ -165,7 +165,7 @@ export async function revokeOtherSessions(userId: string, keepSessionId: string)
 
 export function generateTempPassword() {
   const raw = randomBytes(9).toString("base64").replace(/[+/=]/g, "").slice(0, 10);
-  return `Bcn${raw}!1`;
+  return `Bsk${raw}!1`;
 }
 
 export function maskIdCard(idCardNumber: string) {
